@@ -1,6 +1,6 @@
 {
-  "name": "react-quiz-component",
-  "version": "0.3.8",
+  "name": "react-quiz-max",
+  "version": "0.0.1",
   "description": "React Quiz Component",
   "main": "lib/Quiz.js",
   "scripts": {
@@ -41,11 +41,11 @@
     "webpack-dev-server": "^3.11.0",
     "prop-types": "^15.7.2"
   },
-  "author": "WONG, Wing Kam <wingkwong.code@gmail.com>",
-  "homepage": "https://github.com/wingkwong/react-quiz-component",
+  "author": "Lawson, Tolu <tolu@tolulawson.com>",
+  "homepage": "https://github.com/tolulawson/react-quiz-max",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wingkwong/react-quiz-component.git"
+    "url": "https://github.com/wingkwong/react-quiz-max.git"
   },
   "dependencies": {
     "dompurify": "^2.0.8",

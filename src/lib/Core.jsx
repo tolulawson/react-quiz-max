@@ -262,11 +262,17 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
                 incorrectAnswer={incorrectAnswer}
             />
           </div>
-          <div>{appLocale.question} {currentQuestionIndex + 1}:</div>
-          <h3 dangerouslySetInnerHTML={rawMarkup(question && question.question)}/>
-          {question && question.questionPic && <img src={question.questionPic} alt="image"/>}
-          {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
-          {question && renderAnswers(question, buttons)}
+          {
+            !showNextQuestionButton && (
+              <>
+                <div className='question-number'>{appLocale.question} {currentQuestionIndex + 1}:</div>
+                <h3 dangerouslySetInnerHTML={rawMarkup(question && question.question)}/>
+                {question && question.questionPic && <img src={question.questionPic} alt="image"/>}
+                {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
+                {question && renderAnswers(question, buttons)}
+              </>
+            )
+          }
           {showNextQuestionButton &&
           <div>
             <button onClick={() => nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">

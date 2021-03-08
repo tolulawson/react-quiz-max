@@ -1,4 +1,5 @@
 import React from "react";
+import {rawMarkup} from "./helpers";
 
 const Explanation = ({question, isResultPage}) => {
     const explanation = question.explanation;
@@ -9,8 +10,8 @@ const Explanation = ({question, isResultPage}) => {
 
     if (isResultPage) {
         return (
-            <div className="explanation">
-                {explanation}
+            <div className="explanation" dangerouslySetInnerHTML={rawMarkup(explanation)}>
+                {/* {explanation} */}
             </div>
         )
     }
