@@ -15,17 +15,26 @@ const InstantFeedback = ({showInstantFeedback, incorrectAnswer, correctAnswer, q
 
 
     return (
-        <>
+        <div className='explanation-text'>
             {incorrectAnswer && showInstantFeedback &&
-            <div className="alert incorrect">{renderMessageForIncorrectAnswer(question)}</div>
+              <>
+                <div className="alert incorrect">
+                  {renderMessageForIncorrectAnswer(question)}
+                  <Explanation question={question} isResultPage={false} />
+                </div>
+              </>
             }
             {correctAnswer && showInstantFeedback &&
-            <div className="alert correct">
-                {renderMessageForCorrectAnswer(question)}
-                <Explanation question={question} isResultPage={false}/>
-            </div>
+            <>
+              <div className="alert correct">
+                  {renderMessageForCorrectAnswer(question)}
+              </div>
+              <Explanation question={question} isResultPage={false} />
+            </>
             }
-        </>)
+            <div className='explanation'>
+        </div>
+        </div>)
 }
 
 export default InstantFeedback;

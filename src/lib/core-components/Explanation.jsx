@@ -10,9 +10,9 @@ const Explanation = ({question, isResultPage}) => {
 
     if (isResultPage) {
         return (
-            <div className="explanation" dangerouslySetInnerHTML={rawMarkup(explanation)}>
-                {/* {explanation} */}
-            </div>
+            <>
+                <div dangerouslySetInnerHTML={rawMarkup(explanation)} />
+            </>
         )
     }
 

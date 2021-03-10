@@ -254,25 +254,31 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
       <div className="questionWrapper">
         {!endQuiz &&
         <div className="questionWrapperBody">
-          <div className="questionModal">
-            <InstantFeedback
-                question={question}
-                showInstantFeedback={showInstantFeedback}
-                correctAnswer={correctAnswer}
-                incorrectAnswer={incorrectAnswer}
-            />
-          </div>
+          {
+            (correctAnswer || incorrectAnswer)
+            ? (
+              <div className='questionModal'>
+                <InstantFeedback
+                  question={question}
+                  showInstantFeedback={showInstantFeedback}
+                  correctAnswer={correctAnswer}
+                  incorrectAnswer={incorrectAnswer}
+                />
+              </div>
+            )
+            : null
+          }
+          <div className='question-number'>{appLocale.question} {currentQuestionIndex + 1}</div>
           {
             !showNextQuestionButton && (
               <>
-                <div className='question-number'>{appLocale.question} {currentQuestionIndex + 1}:</div>
                 <h3 dangerouslySetInnerHTML={rawMarkup(question && question.question)}/>
-                {question && question.questionPic && <img src={question.questionPic} alt="image"/>}
-                {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
-                {question && renderAnswers(question, buttons)}
-              </>
+                </>
             )
           }
+          {question && question.questionPic && <img src={question.questionPic} alt="image"/>}
+          {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
+          {question && renderAnswers(question, buttons)}
           {showNextQuestionButton &&
           <div>
             <button onClick={() => nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">

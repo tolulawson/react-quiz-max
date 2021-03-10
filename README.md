@@ -24,12 +24,12 @@ react-quiz-component is a ReactJS component allowing users to attempt a quiz.
 
 ## Installing
 ```
-npm i react-quiz-component
+npm i react-quiz-max
 ```
 
 ## Importing react-quiz-component
 ```
-import Quiz from 'react-quiz-component';
+import Quiz from 'react-quiz-max';
 ```
 
 ## Defining Your Quiz Source

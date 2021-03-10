@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Core from './Core';
 import { defaultLocale } from './Locale';
-import "./styles.css";
+// import "./styles.css";
 
-const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, showInstantFeedback, continueTillCorrect }) => {
+const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, showInstantFeedback, continueTillCorrect, onStart }) => {
   const [start, setStart] = useState(false)
   const [questions, setQuestions] = useState(quiz.questions)
 
@@ -116,7 +116,7 @@ const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, 
               </div>
             }
             <div className="startQuizWrapper">
-              <button onClick={() => setStart(true)} className="startQuizBtn btn">{appLocale.startQuizBtn}</button>
+              <button onClick={() => {setStart(true); onStart();}} className="startQuizBtn btn">{appLocale.startQuizBtn}</button>
             </div>
           </div>
         }
@@ -142,7 +142,8 @@ Quiz.propTypes = {
   onComplete: PropTypes.func,
   customResultPage: PropTypes.func,
   showInstantFeedback: PropTypes.bool,
-  continueTillCorrect: PropTypes.bool
+  continueTillCorrect: PropTypes.bool,
+  onStart: PropTypes.func,
 };
 
 export default Quiz;
