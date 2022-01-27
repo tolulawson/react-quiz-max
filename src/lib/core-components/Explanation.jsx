@@ -19,7 +19,7 @@ const Explanation = ({question, isResultPage}) => {
     return (
         <div>
             <br/>
-            {explanation}
+            <div className="instant-feedback" dangerouslySetInnerHTML={rawMarkup(explanation)} />
         </div>
     )
 };
