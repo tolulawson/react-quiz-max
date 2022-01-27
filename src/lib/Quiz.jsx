@@ -109,7 +109,7 @@ const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, 
       <div className="react-quiz-container">
         {!start &&
           <div>
-            <div dangerouslySetInnerHTML={rawMarkup(quiz.quizTitle)} />
+            <div className='quiz-title' dangerouslySetInnerHTML={rawMarkup(quiz.quizTitle)} />
             <div>{appLocale.landingHeaderText.replace("<questionLength>" , quiz.questions.length)}</div>
             {quiz.quizSynopsis &&
               <div className="quiz-synopsis">
