@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Core from './Core';
 import { defaultLocale } from './Locale';
 // import "./styles.css";
+import { rawMarkup  } from './core-components/helpers';
 
 const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, showInstantFeedback, continueTillCorrect, onStart }) => {
   const [start, setStart] = useState(false)
@@ -108,7 +109,7 @@ const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, 
       <div className="react-quiz-container">
         {!start &&
           <div>
-            <h2>{quiz.quizTitle}</h2>
+            <div dangerouslySetInnerHTML={rawMarkup(quiz.quizTitle)} />
             <div>{appLocale.landingHeaderText.replace("<questionLength>" , quiz.questions.length)}</div>
             {quiz.quizSynopsis &&
               <div className="quiz-synopsis">
