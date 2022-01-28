@@ -20,8 +20,8 @@ const InstantFeedback = ({showInstantFeedback, incorrectAnswer, correctAnswer, q
               <>
                 <div className="alert incorrect">
                   {renderMessageForIncorrectAnswer(question)}
-                  <Explanation question={question} isResultPage={false} />
                 </div>
+                <Explanation question={question} isResultPage={false} />
               </>
             }
             {correctAnswer && showInstantFeedback &&
